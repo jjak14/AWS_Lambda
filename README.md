@@ -8,3 +8,6 @@ The function downloads the added object and sends it as an attachment to a speci
   You need to create the bucket in S3.
   Create your function then add the bucket as trigger (PUT is the method used).
 
+
+2. Lambda-boto3_SES_S3.py
+Handle same task as first code just a slightly different approach.
