@@ -24,7 +24,6 @@ email_body_html = """\
     </html>
     """
 
-
 def lambda_handler(event, context):
     # Create an S3 and SES client
     s3 = boto3.client('s3')
@@ -33,8 +32,8 @@ def lambda_handler(event, context):
     # Bucket Name where file was uploaded
     source_bucket = event["Records"][0]['s3']['bucket']['name']
     # Extract object info and path and store it as a variable
-    file_pathname = event['Records'][0]['s3']['object']['key']
-
+    key = event['Records'][0]['s3']['object']['key']
+    file_pathname = key.replace("+", " ")
     #temporary store the file in tmp directory in lambda
     temp_file_name = '/tmp/' + os.path.basename(file_pathname)
 
